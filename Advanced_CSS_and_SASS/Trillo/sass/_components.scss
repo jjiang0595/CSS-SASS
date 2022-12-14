@@ -1,8 +1,8 @@
-$bp-largest: 75em;   // 1200px
-$bp-large: 68.75em;  // 1100px
+$bp-largest: 75em; // 1200px
+$bp-large: 68.75em; // 1100px
 $bp-medium: 56.25em; // 900px
-$bp-small: 37.5em;   // 600px
-$bp-smallest: 31.25em;   // 500px
+$bp-small: 37.5em; // 600px
+$bp-smallest: 31.25em; // 500px
 
 /////////////////////////////////////////////////////////////
 // LOGO
@@ -404,11 +404,14 @@ $bp-smallest: 31.25em;   // 500px
     //background-size: cover;
 
     //Newer browsers - masks
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
   }
 }
 
